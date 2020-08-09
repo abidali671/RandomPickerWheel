@@ -53,9 +53,23 @@ resetButton.addEventListener("click", function () {
   maybeCount.textContent = "0";
 });
 
+// 320 510
+
+function getWidth() {
+  if(window.outerWidth >= 385 && window.outerWidth <= 510) {
+    return 315;
+  } else if(window.outerWidth <= 385) {
+    return 250;
+  } else {
+    return 500;
+  }
+}
+
 var padding = { top: 20, right: 40, bottom: 0, left: 0 },
-  w = 500 - padding.left - padding.right,
-  h = 500 - padding.top - padding.bottom,
+  w = getWidth(),
+  h = getWidth(),
+  // w = 500 - padding.left - padding.right,
+  // h = 500 - padding.top - padding.bottom,
   r = Math.min(w, h) / 2,
   rotation = 0,
   oldrotation = 0,
@@ -164,7 +178,7 @@ function makeChart() {
     .text(function (d, i) {
       return data[i].label;
     })
-    .style({ "font-size": "1.5rem" });
+    .style({ "font-size": window.outerWidth <= 375 ? "1rem" : "1.5rem" });
 
   container.on("click", spin);
 
