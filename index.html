@@ -23,32 +23,6 @@
       <div class="container">
         <nav class="navbar navbar-expand-xl navbar-light bg-light">
           <a class="navbar-brand" href="#">PickerWheel</a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item active">
-                <a class="nav-link" href="#"
-                  >Home <span class="sr-only">(current)</span></a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Features</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Pricing</a>
-              </li>
-            </ul>
-          </div>
         </nav>
       </div>
     </header>
@@ -62,7 +36,7 @@
           <p>A yes or no wheel that helps to decide yes or no</p>
         </div>
       </div>
-      <div class="container" id="wheel-box">
+      <div class="container shadow-lg" id="wheel-box">
         <div class="row">
           <div class="col-lg-6 col-12 wheel-container d-flex justify-content-center">
             <div id="chart"></div>
@@ -97,8 +71,14 @@
               <div class="col-12 mt-4">
                 <p>Mode</p>
               </div>
-              <div class="col input-sets text-center active-set" id="yes-no">YES or NO</div>
-              <div class="col input-sets text-center" id="yes-no-maybe">YES,NO or MAYBE</div>
+              <div class="row w-100">
+                <div class="col-12 col-sm-6">
+                  <div class="input-sets text-center active-set" id="yes-no">YES or NO</div>
+                </div>
+                <div class="col-12 col-sm-6">
+                  <div class="input-sets text-center" id="yes-no-maybe">YES,NO or MAYBE</div>
+                </div>
+              </div>
               <!-- <div class="col-12 mt-4">
                 <p>Number of Input Sets</p>
               </div> -->
