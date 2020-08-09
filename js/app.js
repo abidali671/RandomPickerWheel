@@ -215,6 +215,7 @@ function makeChart() {
           noCount.textContent = Number(noCount.textContent) + 1;
         if (data[picked].label === "MAYBE")
           maybeCount.textContent = Number(maybeCount.textContent) + 1;
+        pop(data[picked].label);
 
         oldrotation = rotation;
 
@@ -288,12 +289,14 @@ function makeChart() {
 }
 // Pop Up
 var c = 0;
-function pop() {
+function pop(message) {
   if (c == 0) {
     document.getElementById("box").style.display = "block";
+    document.getElementById("selected-op").textContent = message;
     c = 1;
   } else {
     document.getElementById("box").style.display = "none";
+    document.getElementById("selected-op").textContent = message;
     c = 0;
   }
 }
