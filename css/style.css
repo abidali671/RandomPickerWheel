@@ -1,9 +1,10 @@
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  height:100%;
-  max-width:100vw;
+  height: 100%;
+  max-width: 100vw;
   overflow-x: hidden;
   background-color: #95a5a6;
 }
@@ -154,7 +155,7 @@ button.spin .arrow {
   outline: none;
 }
 #reset-btn:active {
-  transform: scale(0.90);
+  transform: scale(0.9);
 }
 #reset-btn:hover {
   cursor: pointer;
@@ -188,10 +189,65 @@ button.spin .arrow {
   outline: none;
 }
 
-@media (max-width: 580px) {
-  .result-box {
-  }
+/* Pop Up */
+
+#alert-box h1,
+#alert-box h4 {
+  font-family: "Montserrat", sans-serif;
+  color: #333;
 }
+#box {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 99998;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: none;
+}
+#alert-box {
+  width: 500px;
+  overflow: hidden;
+  background-color: #f1f1f1;
+  box-shadow: 0 0 5px #000;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 99999;
+  padding: 20px 0;
+}
+#alert-box h1 {
+  font-size: 3.5rem;
+  margin: 1.5rem 0;
+}
+#alert-box h4 {
+  font-size: 1.3rem;
+  margin: 1rem 0;
+}
+.close-btn {
+  display: inline-block;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  padding: 10px 40px;
+  background-color: rgb(247, 183, 29);
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-top: 20px;
+  transition: 0.2s;
+}
+.close-btn:hover {
+  transform: scale(1.02);
+  text-decoration: none;
+  color: #fff;
+}
+
 @media (max-width: 500px) {
   #wheel {
     height: 350px;
