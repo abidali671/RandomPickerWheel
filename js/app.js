@@ -184,6 +184,7 @@ function makeChart() {
 
   function spin(d) {
     container.on("click", null);
+    document.getElementById('spin-tick').play();
 
     //all slices have been seen, all done
     console.log("OldPick: " + oldpick.length, "Data length: " + data.length);
@@ -293,6 +294,7 @@ function pop(message) {
   if (c == 0) {
     document.getElementById("box").style.display = "block";
     document.getElementById("selected-op").textContent = message;
+    document.getElementById('celeb').play();
     c = 1;
   } else {
     document.getElementById("box").style.display = "none";
