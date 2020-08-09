@@ -15,7 +15,8 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
   </head>
   <body>
     <header>
@@ -63,50 +64,56 @@
       </div>
       <div class="container" id="wheel-box">
         <div class="row">
-          <div class="col-lg-6 col-12">
-            <div class="mx-auto" id="wheel">
-              <span class="wheel-part part-1"><p>Yes</p></span>
-              <span class="wheel-part part-2"><p>No</p></span>
-              <span class="wheel-part part-3"><p>Yes</p></span>
-              <span class="wheel-part part-4"><p>No</p></span>
-              <span class="wheel-part part-5"><p>Yes</p></span>
-              <span class="wheel-part part-6"><p>No</p></span>
-              <button class="spin"><span class="arrow"></span>SPIN</button>
-            </div>
+          <div class="col-lg-6 col-12 wheel-container d-flex justify-content-center">
+            <div id="chart"></div>
           </div>
           <div class="col-lg-6 mt-5 col-12">
             <div class="row p-sm-0 p-5">
               <div
                 class="col-sm col-12 ml-sm-5 mr-lg-1 mr-sm-2 my-2 result-box"
               >
-                <h2>0</h2>
+                <h2 id="yes-count">0</h2>
                 <p>YES</p>
+              </div>
+              <div
+                class="col-sm mr-lg-1 col-12 my-2 result-box"
+                id="maybe-container"
+                style="display: none;"
+              >
+                <h2 id="maybe-count">0</h2>
+                <p>MAYBE</p>
               </div>
               <div
                 class="col-sm col-12 mr-sm-5 ml-lg-1 mr-sm-2 my-2 result-box"
               >
-                <h2>0</h2>
+                <h2 id="no-count">0</h2>
                 <p>NO</p>
               </div>
               <div class="col-12 d-flex justify-content-center">
                 <button class="my-3" id="reset-btn">
-                  <img src="redo-solid.svg" alt="reset" />
+                  <img src="./assets/redo-solid.svg" alt="reset" />
                 </button>
               </div>
-              <div class="col-12">
-                <p>Number of Input Sets</p>
+              <div class="col-12 mt-4">
+                <p>Mode</p>
               </div>
+              <div class="col input-sets text-center active-set" id="yes-no">YES or NO</div>
+              <div class="col input-sets text-center" id="yes-no-maybe">YES,NO or MAYBE</div>
+              <!-- <div class="col-12 mt-4">
+                <p>Number of Input Sets</p>
+              </div> -->
 
-              <button class="col input-sets">1</button>
-              <button class="col input-sets">2</button>
-              <button class="col input-sets">3</button>
-              <button class="col input-sets">4</button>
-              <button class="col input-sets">5</button>
+              <!-- <div class="col input-sets text-center" id="one">1</div>
+              <div class="col input-sets text-center" id="two">2</div>
+              <div class="col input-sets text-center active-set" id="three">3</div>
+              <div class="col input-sets text-center" id="four">4</div>
+              <div class="col input-sets text-center" id="five">5</div> -->
             </div>
           </div>
         </div>
       </div>
     </div>
+
 
     <script
       src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -123,7 +130,6 @@
       integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
       crossorigin="anonymous"
     ></script>
-    <script src="./Winwheel.min.js" type="text/javascript"></script>
-    <script src="./app.js" type="text/javascript"></script>
+    <script src="./js/app.js" type="text/javascript"></script>
   </body>
 </html>
