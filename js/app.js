@@ -7,19 +7,11 @@ const maybeCount = document.getElementById("maybe-count");
 const yesNo = document.getElementById("yes-no");
 const yesNoMaybe = document.getElementById("yes-no-maybe");
 
-// const one = document.querySelector("#one");
-// const two = document.querySelector("#two");
-// const three = document.querySelector("#three");
-// const four = document.querySelector("#four");
-// const five = document.querySelector("#five");
-
 const maybeContainer = document.getElementById("maybe-container");
 
 const resetButton = document.getElementById("reset-btn");
 
 let numberOfSets = 3;
-
-// const countElements = [one, two, three, four, five];
 
 let currentMode = "yes-no";
 const modes = [yesNo, yesNoMaybe];
@@ -41,19 +33,11 @@ function setNumberOfSets(e) {
   selectActive(e.target.id, countElements);
 }
 
-// one.addEventListener("click", setNumberOfSets);
-// two.addEventListener("click", setNumberOfSets);
-// three.addEventListener("click", setNumberOfSets);
-// four.addEventListener("click", setNumberOfSets);
-// five.addEventListener("click", setNumberOfSets);
-
 resetButton.addEventListener("click", function () {
   yesCount.textContent = "0";
   noCount.textContent = "0";
   maybeCount.textContent = "0";
 });
-
-// 320 510
 
 function getWidth() {
   if (window.outerWidth >= 385 && window.outerWidth <= 510) {
@@ -64,21 +48,6 @@ function getWidth() {
     return 500;
   }
 }
-
-var padding = { top: 20, right: 40, bottom: 0, left: 0 },
-  w = getWidth(),
-  h = getWidth(),
-  // w = 500 - padding.left - padding.right,
-  // h = 500 - padding.top - padding.bottom,
-  r = Math.min(w, h) / 2,
-  rotation = 0,
-  oldrotation = 0,
-  picked = 100000,
-  oldpick = [],
-  color = d3.scale.category20(); //category20c()
-//randomNumbers = getRandomNumbers();
-
-//http://osric.com/bingo-card-generator/?title=HTML+and+CSS+BINGO!&words=padding%2Cfont-family%2Ccolor%2Cfont-weight%2Cfont-size%2Cbackground-color%2Cnesting%2Cbottom%2Csans-serif%2Cperiod%2Cpound+sign%2C%EF%B9%A4body%EF%B9%A5%2C%EF%B9%A4ul%EF%B9%A5%2C%EF%B9%A4h1%EF%B9%A5%2Cmargin%2C%3C++%3E%2C{+}%2C%EF%B9%A4p%EF%B9%A5%2C%EF%B9%A4!DOCTYPE+html%EF%B9%A5%2C%EF%B9%A4head%EF%B9%A5%2Ccolon%2C%EF%B9%A4style%EF%B9%A5%2C.html%2CHTML%2CCSS%2CJavaScript%2Cborder&freespace=true&freespaceValue=Web+Design+Master&freespaceRandom=false&width=5&height=5&number=35#results
 
 for (let i = 0; i <= 3; i++) {
   data.push({ label: "YES", value: 1 });
@@ -114,6 +83,18 @@ yesNoMaybe.addEventListener("click", function (e) {
 });
 
 function makeChart() {
+  document.getElementById('chart').innerHTML = '';
+
+  var padding = { top: 20, right: 40, bottom: 0, left: 0 },
+  w = getWidth(),
+  h = getWidth(),
+  r = Math.min(w, h) / 2,
+  rotation = 0,
+  oldrotation = 0,
+  picked = 100000,
+  oldpick = [],
+
+  color = d3.scale.category20();
   var svg = d3
     .select("#chart")
     .append("svg")
@@ -302,3 +283,7 @@ function pop(message) {
     c = 0;
   }
 }
+
+window.addEventListener('resize', function() {
+  makeChart()
+})
