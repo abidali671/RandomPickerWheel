@@ -40,10 +40,16 @@ resetButton.addEventListener("click", function () {
 });
 
 function getWidth() {
-  if (window.outerWidth >= 385 && window.outerWidth <= 510) {
-    return 315;
-  } else if (window.outerWidth <= 385) {
+  if (window.outerWidth >= 450 && window.outerWidth <= 510) {
+    return 390;
+  } else if (window.outerWidth >= 385 && window.outerWidth <= 450) {
+    return 320;
+  } else if (window.outerWidth >= 300 && window.outerWidth <= 385) {
     return 250;
+  } else if (window.outerWidth <= 300) {
+    return 200;
+  } else if (window.outerWidth >= 510 && window.outerWidth <= 560) {
+    return 450;
   } else {
     return 500;
   }
@@ -83,18 +89,17 @@ yesNoMaybe.addEventListener("click", function (e) {
 });
 
 function makeChart() {
-  document.getElementById('chart').innerHTML = '';
+  document.getElementById("chart").innerHTML = "";
 
   var padding = { top: 20, right: 40, bottom: 0, left: 0 },
-  w = getWidth(),
-  h = getWidth(),
-  r = Math.min(w, h) / 2,
-  rotation = 0,
-  oldrotation = 0,
-  picked = 100000,
-  oldpick = [],
-
-  color = d3.scale.category20();
+    w = getWidth(),
+    h = getWidth(),
+    r = Math.min(w, h) / 2,
+    rotation = 0,
+    oldrotation = 0,
+    picked = 100000,
+    oldpick = [],
+    color = d3.scale.category20();
   var svg = d3
     .select("#chart")
     .append("svg")
@@ -159,13 +164,16 @@ function makeChart() {
     .text(function (d, i) {
       return data[i].label;
     })
-    .style({ "font-size": window.outerWidth <= 375 ? "1rem" : "1.5rem" });
+    .style({
+      "font-size": window.outerWidth <= 375 ? "1rem" : "1.5rem",
+      "font-family": "Lato, Helvetica, sans-serif, arial",
+    });
 
   container.on("click", spin);
 
   function spin(d) {
     container.on("click", null);
-    document.getElementById('spin-tick').play();
+    document.getElementById("spin-tick").play();
 
     //all slices have been seen, all done
     console.log("OldPick: " + oldpick.length, "Data length: " + data.length);
@@ -275,7 +283,9 @@ function pop(message) {
   if (c == 0) {
     document.getElementById("box").style.display = "block";
     document.getElementById("selected-op").textContent = message;
-    document.getElementById('celeb').play();
+    const celeb = document.getElementById("celeb");
+    celeb.volume = 0.1;
+    celeb.play();
     c = 1;
   } else {
     document.getElementById("box").style.display = "none";
@@ -284,6 +294,6 @@ function pop(message) {
   }
 }
 
-window.addEventListener('resize', function() {
-  makeChart()
-})
+window.addEventListener("resize", function () {
+  makeChart();
+});
